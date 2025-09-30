@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FitForge Design System - Motivational Fitness Platform
+All colors, gradients, fonts, animations for sustainable fitness habits
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Fitness & Health Focus */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    /* Card & Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Energetic Fitness Blue */
+    --primary: 205 90% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 205 100% 65%;
+
+    /* Secondary - Success Green for Progress */
+    --secondary: 145 65% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Calm Background Tones */
+    --muted: 210 15% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Accent - Motivational Orange */
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Warning - Injury Prevention Red */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Fitness-Specific Colors */
+    --strength: 265 85% 65%;
+    --strength-foreground: 0 0% 100%;
+    
+    --cardio: 340 85% 60%;
+    --cardio-foreground: 0 0% 100%;
+    
+    --nutrition: 85 80% 55%;
+    --nutrition-foreground: 0 0% 100%;
+    
+    --recovery: 195 50% 50%;
+    --recovery-foreground: 0 0% 100%;
+
+    /* Progress Colors */
+    --progress-start: 205 90% 50%;
+    --progress-end: 145 65% 45%;
+
+    /* UI Elements */
+    --border: 210 20% 88%;
+    --input: 210 20% 95%;
+    --ring: 205 90% 50%;
+
+    --radius: 0.75rem;
+
+    /* Fitness Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-progress: linear-gradient(90deg, hsl(var(--progress-start)), hsl(var(--progress-end)));
+    --gradient-strength: linear-gradient(135deg, hsl(var(--strength)), hsl(265 85% 80%));
+    --gradient-cardio: linear-gradient(135deg, hsl(var(--cardio)), hsl(340 85% 75%));
+    --gradient-nutrition: linear-gradient(135deg, hsl(var(--nutrition)), hsl(85 80% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+
+    /* Motivational Shadows */
+    --shadow-primary: 0 10px 30px -5px hsl(var(--primary) / 0.3);
+    --shadow-success: 0 10px 30px -5px hsl(var(--secondary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 20px -2px hsl(215 25% 15% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Fitness Focus */
+    --background: 215 25% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 20% 95%;
+
+    /* Keep vibrant fitness colors in dark mode */
+    --primary: 205 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 205 100% 70%;
+
+    --secondary: 145 65% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 25 95% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Dark Mode Fitness Colors */
+    --strength: 265 85% 70%;
+    --cardio: 340 85% 65%;
+    --nutrition: 85 75% 60%;
+    --recovery: 195 50% 55%;
+
+    /* Dark UI Elements */
+    --border: 215 20% 20%;
+    --input: 215 20% 15%;
+    --ring: 205 90% 55%;
+
+    /* Dark Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Fitness Component Styles */
+  .hero-section {
+    @apply bg-gradient-to-br from-primary to-secondary text-white;
+  }
+
+  .fitness-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-primary)] transition-all duration-300;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-[hsl(var(--progress-start))] to-[hsl(var(--progress-end))] transition-all duration-500;
+  }
+
+  .workout-type-strength {
+    @apply bg-[hsl(var(--strength))] text-[hsl(var(--strength-foreground))];
+  }
+
+  .workout-type-cardio {
+    @apply bg-[hsl(var(--cardio))] text-[hsl(var(--cardio-foreground))];
+  }
+
+  .workout-type-nutrition {
+    @apply bg-[hsl(var(--nutrition))] text-[hsl(var(--nutrition-foreground))];
+  }
+
+  .workout-type-recovery {
+    @apply bg-[hsl(var(--recovery))] text-[hsl(var(--recovery-foreground))];
+  }
+
+  .motivational-glow {
+    @apply shadow-[var(--shadow-glow)] animate-pulse;
+  }
+
+  .achievement-celebration {
+    @apply animate-bounce bg-gradient-to-r from-accent to-secondary text-white;
+  }
+}
